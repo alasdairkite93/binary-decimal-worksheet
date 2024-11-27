@@ -1,5 +1,5 @@
 import '../questions.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 var q1_attempts = 0;
 var q2_attempts = 0;
@@ -17,6 +17,8 @@ var q13_attempts = 0;
 var q14_attempts = 0;
 var q15_attempts = 0;
 var q16_attempts = 0;
+
+var score = 0;
 function singleInput(input){
 
     return parseInt(input, 2).toString(10);
@@ -44,6 +46,7 @@ export default function BinaryDecimal() {
         var result = parseInt(singleInput(inputValue));
         if (result === 5 && q1_attempts <= 3) {
             document.getElementById('q1').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q1_attempts = q1_attempts + 1;
@@ -58,7 +61,7 @@ export default function BinaryDecimal() {
 
         if (q2Input === 7 && q2_attempts <= 3) {
             document.getElementById('q2').style.backgroundColor = "green";
-        }
+            score = score + 1;        }
         else {
             q2_attempts = q2_attempts + 1;
             document.getElementById('q2').style.backgroundColor = "white";
@@ -72,6 +75,7 @@ export default function BinaryDecimal() {
 
         if (q3Input === 11 && q3_attempts <= 3) {
             document.getElementById('q3').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q3_attempts = q3_attempts + 1;
@@ -86,6 +90,7 @@ export default function BinaryDecimal() {
 
         if (q4Input === 37 && q4_attempts <= 3) {
             document.getElementById('q4').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q4_attempts = q4_attempts + 1;
@@ -99,6 +104,7 @@ export default function BinaryDecimal() {
 
         if (q5Input === 117 && q5_attempts <= 3) {
             document.getElementById('q5').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q5_attempts = q5_attempts + 1;
@@ -112,6 +118,7 @@ export default function BinaryDecimal() {
 
         if (q6Input === 176 && q6_attempts <= 3) {
             document.getElementById('q6').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q6_attempts = q6_attempts + 1;
@@ -125,6 +132,7 @@ export default function BinaryDecimal() {
 
         if (q7Input === 193 && q7_attempts <= 3) {
             document.getElementById('q7').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q7_attempts = q7_attempts + 1;
@@ -138,6 +146,7 @@ export default function BinaryDecimal() {
 
         if (q8Input === 205 && q8_attempts <= 3) {
             document.getElementById('q8').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q8_attempts = q8_attempts + 1;
@@ -151,10 +160,12 @@ export default function BinaryDecimal() {
 
         if (q9Input === 254 && q9_attempts <= 3) {
             document.getElementById('q9').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q9_attempts = q9_attempts + 1;
             document.getElementById('q9').style.backgroundColor = "white";
+
             if (q9_attempts > 3) {
                 document.getElementById('q9answer').innerText = "Max tries exceed";
             }
@@ -164,6 +175,7 @@ export default function BinaryDecimal() {
 
         if (q10Input === 255 && q10_attempts <= 3) {
             document.getElementById('q10').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q10_attempts = q10_attempts + 1;
@@ -178,6 +190,7 @@ export default function BinaryDecimal() {
         var result = parseInt(singleInput(q11Input));
         if (result === 92 && q11_attempts <= 3) {
             document.getElementById('q11').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q11_attempts = q11_attempts + 1;
@@ -192,6 +205,7 @@ export default function BinaryDecimal() {
         var result = parseInt(singleInput(q12Input));
         if (result === 255 && q12_attempts <= 3) {
             document.getElementById('q12').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q12_attempts = q12_attempts + 1;
@@ -206,6 +220,7 @@ export default function BinaryDecimal() {
         var result = parseInt(singleInput(q13Input));
         if (result === 196 && q13_attempts <= 3) {
             document.getElementById('q13').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q13_attempts = q13_attempts + 1;
@@ -220,6 +235,7 @@ export default function BinaryDecimal() {
         var result = parseInt(singleInput(q14Input));
         if (result === 51 && q14_attempts <= 3) {
             document.getElementById('q14').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q14_attempts = q14_attempts + 1;
@@ -234,6 +250,7 @@ export default function BinaryDecimal() {
         var result = parseInt(singleInput(q15Input));
         if (result === 23 && q15_attempts <= 3) {
             document.getElementById('q15').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q15_attempts = q15_attempts + 1;
@@ -248,6 +265,7 @@ export default function BinaryDecimal() {
         var result = parseInt(singleInput(q16Input));
         if (result === 113 && q16_attempts <= 3) {
             document.getElementById('q16').style.backgroundColor = "green";
+            score = score + 1;
         }
         else {
             q16_attempts = q16_attempts + 1;
@@ -257,6 +275,12 @@ export default function BinaryDecimal() {
             }
         }
     }
+
+    useEffect(() => {
+        if (score === 16){
+            document.getElementById("certificate").src = "https://res.cloudinary.com/dsfypcapq/image/upload/v1732687251/badge-removebg-preview_x68bj3.png";
+        }
+    }, []);
 
 
     return (
@@ -423,6 +447,7 @@ export default function BinaryDecimal() {
                     </div>
                 </div>
             </div>
+            <img id="certificate" height="500" width="500"></img>
         </div>
     )
 }
